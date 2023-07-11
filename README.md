@@ -39,6 +39,7 @@ The below APIs have been activated on your project. You cannot activate APIs you
 * automl.googleapis.com
 * bigquery.googleapis.com
 * bigqueryconnection.googleapis.com
+* cloudasset.googleapis.com
 * cloudbuild.googleapis.com
 * clouderrorreporting.googleapis.com
 * cloudfunctions.googleapis.com
@@ -83,6 +84,7 @@ Every team member has the following roles granted at project level:
 * roles/bigquery.resourceViewer
 * roles/bigquery.user
 * roles/bigquerydatapolicy.maskedReader
+* roles/cloudasset.viewer
 * roles/cloudbuild.builds.approver
 * roles/cloudbuild.builds.editor
 * roles/cloudbuild.connectionAdmin
@@ -135,6 +137,7 @@ The workload SA has the following roles granted at project level:
 * roles/bigquery.jobUser
 * roles/bigquery.readSessionUser
 * roles/bigquerydatapolicy.maskedReader
+* roles/cloudasset.viewer
 * roles/cloudbuild.builds.builder
 * roles/cloudbuild.tokenAccessor
 * roles/cloudbuild.workerPoolUser
