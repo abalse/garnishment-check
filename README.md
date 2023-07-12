@@ -35,6 +35,9 @@ To log in to the GCP Cloud Console:
 ### Access Rights & Actors
 The below APIs have been activated on your project. You cannot activate APIs yourselves.
 * aiplatform.googleapis.com
+* appengine.googleapis.com
+* appengineflex.googleapis.com
+* appenginereporting.googleapis.com
 * artifactregistry.googleapis.com
 * automl.googleapis.com
 * bigquery.googleapis.com
@@ -57,6 +60,7 @@ The below APIs have been activated on your project. You cannot activate APIs you
 * notebooks.googleapis.com
 * pubsub.googleapis.com
 * run.googleapis.com
+* secretmanager.googleapis.com
 * servicemanagement.googleapis.com
 * serviceusage.googleapis.com
 * speech.googleapis.com
@@ -77,6 +81,7 @@ Every team member has the following roles granted at project level:
 * roles/aiplatform.migrator
 * roles/aiplatform.tensorboardWebAppUser
 * roles/aiplatform.user
+* roles/appengine.appAdmin
 * roles/artifactregistry.admin
 * roles/automl.editor
 * roles/bigquery.connectionAdmin
@@ -109,6 +114,7 @@ Every team member has the following roles granted at project level:
 * roles/notebooks.legacyViewer
 * roles/pubsub.editor
 * roles/run.admin
+* roles/secretmanager.admin
 * roles/servicemanagement.quotaViewer
 * roles/serviceusage.serviceUsageConsumer
 * roles/speech.editor
@@ -162,6 +168,8 @@ The workload SA has the following roles granted at project level:
 * roles/pubsub.publisher
 * roles/pubsub.subscriber
 * roles/run.invoker
+* roles/secretmanager.secretAccessor
+* roles/secretmanager.secretVersionAdder
 * roles/servicemanagement.quotaViewer
 * roles/serviceusage.serviceUsageConsumer
 * roles/speech.client
