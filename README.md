@@ -4,7 +4,7 @@ Your hackathon environment consists of four components:
 1. A GCP project (https://console.cloud.google.com/home/dashboard?project=hack-team-autobots-b)
 2. This GitHub repository (https://github.com/db-hackathon/autobots-b)
 3. A Terraform Cloud workspace (https://app.terraform.io/app/db-hackathon-2023/workspaces/hack-team-autobots-b)
-4. A namespace in a shared RedHat Openshift 4.13 cluster (XXX)
+4. A namespace in a shared RedHat Openshift 4.13 cluster
 
 You have considerable interactive access to your GCP project.
 Using the GitHub repository and the Terraform Cloud workspace are entirely optional.
@@ -260,8 +260,16 @@ A set of useful [Input variables](https://developer.hashicorp.com/terraform/lang
 * workload_sa_email - The email address representation of the SA you can attach to your workloads (e.g. to a Cloud Run service). : workload@hack-team-autobots-b.iam.gserviceaccount.com
 * workload_sa_id - The fully qualified ID representation of the SA you can attach to your workloads (e.g. to a Cloud Run service). : projects/hack-team-autobots-b/serviceAccounts/workload@hack-team-autobots-b.iam.gserviceaccount.com
 
-## OpenShift (XXX)
+## OpenShift
 ### Interactive Access
 Log in to OpenShift via https://console-openshift-console.apps.dbh.dbhackathon.org/.
 No SSL cert has been provisioned, so you'll have to risk the warnings.
 On that page, choose to "Log in with" the "githubidp" option and use the GitHub handle you signed up with to complete the authentication.
+
+## Additional useful guides 
+1. [How to access the Teams Chat](https://storage.cloud.google.com/hackathon_shared_storage/teams_guide.docx)
+2. [DB Hackathon Briefing](https://storage.cloud.google.com/hackathon_shared_storage/24-Hour%20Global%20Hackathon_Jul2023%20Team%20Briefing%20Deck_FINAL.pdf)
+3. [Hackathon 2023 Challenge](https://storage.cloud.google.com/hackathon_shared_storage/Hackathon%20Challenge%202023.pdf)
+4. [OpenAI Intro Session 1](https://1drv.ms/v/s!AjEnekew12zfn4sCSBNRoQRytSuSRg?e=lEgEHP)
+5. [OpenAI Intro Session 2](https://1drv.ms/v/s!AjEnekew12zfn4sBD50ZgpvDGpiM4A?e=FhTkQG)
+6. [Google Cloud Generative AI Training Resources](https://cloud.google.com/blog/topics/training-certifications/new-google-cloud-generative-ai-training-resources)
