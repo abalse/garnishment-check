@@ -4,7 +4,7 @@ Your hackathon environment consists of four components:
 1. A GCP project (https://console.cloud.google.com/home/dashboard?project=hack-team-autobots-b)
 2. This GitHub repository (https://github.com/db-hackathon/autobots-b)
 3. A Terraform Cloud workspace (https://app.terraform.io/app/db-hackathon-2023/workspaces/hack-team-autobots-b)
-4. A namespace in a shared RedHat Openshift 4.13 cluster
+4. A namespace in a shared RedHat Openshift 4.13 cluster (https://console-openshift-console.apps.dbh.dbhackathon.org/)
 
 You have considerable interactive access to your GCP project.
 Using the GitHub repository and the Terraform Cloud workspace are entirely optional.
@@ -273,6 +273,15 @@ A set of useful [Input variables](https://developer.hashicorp.com/terraform/lang
 Log in to OpenShift via https://console-openshift-console.apps.dbh.dbhackathon.org/.
 No SSL cert has been provisioned, so you'll have to risk the warnings.
 On that page, choose to "Log in with" the "githubidp" option and use the GitHub handle you signed up with to complete the authentication.
+
+Once logged in, you will have access to two namespaces; one personal named after your GitHub handle, and one shared named after your team.
+
+The team namespace has a special Kubernetes secret named "gcp-access".
+The value of this secret is an automatically-refresh OAuth 2.0 token for your workload SA.
+Use this to authenticate with GCP APIs from your workloads.
+Each token expires after one hour, but the value of the secret is automatically refreshed.
+Your application should tolerate having to refresh the token from the Kubernetes secret.
+When it detects an expired token, simply access the Kubernetes secret again to get a fresh one.
 
 ## Use Cases 
 
