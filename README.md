@@ -266,6 +266,114 @@ Log in to OpenShift via https://console-openshift-console.apps.dbh.dbhackathon.o
 No SSL cert has been provisioned, so you'll have to risk the warnings.
 On that page, choose to "Log in with" the "githubidp" option and use the GitHub handle you signed up with to complete the authentication.
 
+## Use Cases 
+
+### Examples 
+**Inbound Content Management**
+* Reading & interpreting emails, chat, docs, making sense of them and being able identify and cluster them appropriately. 
+* Includes data point extraction if applicable 
+
+*Inbound mail document handling*
+* Scan and classify incoming documents
+* Reconcile customer information
+* Extract context and determine actions
+* Pass to appropriate channel
+
+*Inbound email handling*
+* Scan and classify incoming documents
+* Reconcile customer information
+* Extract context and determine actions
+* Pass to appropriate channel/reply automatically/generate workflow
+
+*Inbound voice via phone*
+* Virtual voice agent to interact with customer
+* Gather customer information
+* Determine context of enquiry
+* Pass to appropriate channel/reply automatically/generate workflow
+
+*Conversational Chat*
+* Conversation via web/app chat or via phone
+* Gather customer information
+* Determine context of enquiry
+* Interact with customer via a chat conversation to understand context and determine solution
+
+**Anomoly and Pattern Detection**
+
+* Gathering data and doing anomaly & pattern detection to propose actions and routing content to the right person/ process 
+
+*Compliance review of voice calls*
+* Analyse voice conversation
+* Determine context of communication
+* Perform sentiment analysis and tonality
+* Extract domain context (such as names, customers, companies, products) for indexing
+* False Positive Reduction
+
+*Analyse historic false positive data*
+* Suggest false positive data within current dataset
+* Increase learning from continual training
+
+**Queue management**
+
+* Reduced effort on queues by AI based:
+* Prioritization (right order)
+* Curation (routing items to the right people)
+* Optimization (providing typical causes)
+* Recommendation (what is to be actioned or reviewed, press button to action) 
+
+**Content Generation**
+
+* Auto generation of summaries and content using Large Language Models.
+* Includes search and summaries, summarizing policies, regs, generating client reports, research
+* Also includes translation & documentation tasks 
+
+*Financial Document Analysis*
+* Analyse financial documents
+* Extract key financial information - performance, market segments, growth, etc
+* Summarise complex documents
+* Compare similar organisations
+
+*Software Development*
+* Provide coding suggestions
+* Analyse code for security or functional defects
+* Analyse code for architectural compliance
+* Ask questions of a codebase to assist in learning
+
+*Language Translation*
+* Allow multi language translation with high accuracy
+* Remove dependency on local translation services
+* Client Behaviour
+* Analyse client behaviour
+* Predict future client behaviour using patterns of behaviour of similar clients
+* Recommend products and services to the client
+
+*Trade Corridors*
+* Analyse trade corridors - to/from transactions across boundaries
+* Determine trade corridor patterns from the data
+* Identify emerging trade corridors and predict future trade corridors
+
+### Datasets 
+
+Please make sure to respect all copyright / licence T&C’s
+
+*Dataset List / Search*
+* Awesome List Of Data: https://github.com/smuthubabu/awesome-public-datasets
+* Kaggle Dataset: https://www.kaggle.com/datasets/
+* Google Dataset Search: https://datasetsearch.research.google.com/
+
+*Select Datasets which maybe useful:*
+* Companies House (Companies name, owners, etc.):  https://www.gov.uk/guidance/companies-house-data-products
+* SEC Edgar Annual Financial Filings – 2021: https://www.kaggle.com/datasets/pranjalverma08/sec-edgar-annual-financial-filings-2021
+* Public DB Research Webpage: https://www.dbresearch.com/PROD/RPS_EN-PROD/Deutsche_Bank_Research__economic_cyclegrowth_trends_economic_policy/RPSHOME.alias
+* Enron Email Dataset: https://www.kaggle.com/datasets/wcukierski/enron-email-dataset
+* Global commodity trade statistics: https://www.kaggle.com/datasets/unitednations/global-commodity-trade-statistics
+* Bitcoin transactions with licit & illicit examples: https://www.kaggle.com/datasets/ellipticco/elliptic-data-set/code
+* Parsed document: https://huggingface.co/datasets
+
+*Code Tutorials*
+* Kaggle Kernels: https://www.kaggle.com/code
+* GCP Service tutorials https://cloud.google.com/docs/tutorials
+* List of Explainable AI links and frameworks : https://github.com/wangyongjie-ntu/Awesome-explainable-AI
+ 
 ## Additional useful guides 
 1. [How to access the Teams Chat](https://storage.cloud.google.com/hackathon_shared_storage/teams_guide.docx)
 2. [DB Hackathon Briefing](https://storage.cloud.google.com/hackathon_shared_storage/24-Hour%20Global%20Hackathon_Jul2023%20Team%20Briefing%20Deck_FINAL.pdf)
