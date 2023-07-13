@@ -1,4 +1,25 @@
 # Welcome, autobots-b, to the 2023 TDI Global Hackathon
+## Contents
+1. [About your hackathon environment](#about-your-hackathon-environment)
+2. [Access Issues](#access-issues)
+3. [GCP](#gcp)
+    1. [First log-in](#first-log-in)
+    2. [Access Rights & Principals](#access-rights--principals)
+    3. [Use a custom/user-managed Service Account wherever possible](#use-a-customuser-managed-service-account-wherever-possible)
+    4. [Limitations & Restrictions](#limitations--restrictions)
+    5. [Developing in Google Cloud Console & Cloud Shell](#developing-in-google-cloud-console--cloud-shell) 
+4. [GitHub](#github)
+    1. [Limitations & Restrictions](#limitations--restrictions-1) 
+5. [Terraform Cloud](#terraform-cloud)
+6. [OpenShift](#openshift) 
+7. [Use Cases](#use-cases)
+8. [DataSets](#datasets)
+9. [Additional useful guides](#additional-useful-guides-)
+10. [FAQ](#faq)
+    1. [Authenticating with GCP APIs from code](#authenticating-with-gcp-apis-from-code)
+    2. [How do I deploy Cloud Run?](#how-do-i-deploy-cloud-run)
+    3. [How do I deploy App Engine?](#how-do-i-deploy-app-engine)
+
 ## About your hackathon environment
 Your hackathon environment consists of four components:
 1. A GCP project (https://console.cloud.google.com/home/dashboard?project=hack-team-autobots-b)
@@ -32,7 +53,7 @@ To log in to the GCP Cloud Console:
 
 > Walkthough Video Tutorial including 2FA Setup - **[Video Here](https://youtu.be/fs8jDCwwqFI)**
 
-### Access Rights & Actors
+### Access Rights & Principals
 The below APIs have been activated on your project. You cannot activate APIs yourselves.
 * aiplatform.googleapis.com
 * appengine.googleapis.com
@@ -204,7 +225,7 @@ The workload SA has the following roles granted at project level:
 * roles/visionai.admin
 * roles/workflows.invoker
 
-## Use a custom/user-managed Service Account wherever possible 
+## Use a custom/user-managed Service Account wherever possible
 The default compute service account in your project has been de-privileged.
 Whenever you provision compute (e.g. a VMs powering a Jupyter notebook or dataflow pipeline, a Cloud Run service or a Cloud Function)
 you must attach your Workload SA (workload@hack-team-autobots-b.iam.gserviceaccount.com) , usually referred to in the GCP documentation as "attaching a custom SA".
@@ -352,7 +373,7 @@ Each token expires after one hour, but the value of the secret is automatically 
 Your application should tolerate having to refresh the token from the Kubernetes secret.
 When it detects an expired token, simply access the Kubernetes secret again to get a fresh one.
 
-## Use Cases 
+## Use Cases
 
 ### Examples 
 **Inbound Content Management**
@@ -437,7 +458,7 @@ When it detects an expired token, simply access the Kubernetes secret again to g
 * Determine trade corridor patterns from the data
 * Identify emerging trade corridors and predict future trade corridors
 
-### Datasets 
+### Datasets
 
 Please make sure to respect all copyright / licence T&C’s
 
@@ -467,3 +488,32 @@ Please make sure to respect all copyright / licence T&C’s
 4. [OpenAI Intro Session 1](https://1drv.ms/v/s!AjEnekew12zfn4sCSBNRoQRytSuSRg?e=lEgEHP)
 5. [OpenAI Intro Session 2](https://1drv.ms/v/s!AjEnekew12zfn4sBD50ZgpvDGpiM4A?e=FhTkQG)
 6. [Google Cloud Generative AI Training Resources](https://cloud.google.com/blog/topics/training-certifications/new-google-cloud-generative-ai-training-resources)
+
+
+## FAQ
+### Authenticating with GCP APIs from code
+I've seen quite a few requests for assistance where colleagues feel they need an API key or SA key in order to auth with GCP APIs from their code. In general, you don't need this invoke our supported services. When running locally, gcloud login will suffice:
+
+```bash
+gcloud auth login <<you@dbtechhackathon.com>>
+gcloud auth application-default login
+```
+
+When running on GCP-native compute using Google's client libraries or gcloud, as long as you've attached your Workload SA to the compute, the magic of [Application Default Credentials](https://cloud.google.com/docs/authentication/application-default-credentials) will kick in and the code will auth correctly.
+When not using Google's client libraries, you can obtain an access token from the [metadata server](https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#applications).
+You can pass this to the client libraries/gcloud/curl e.g.
+```bash
+curl -X POST \
+-H "Authorization: Bearer $ACCESS_TOKEN" \
+...
+```
+
+When running on OCP, the value of the secret "gcp-access" in your team's namespace will have a valid access token for your Workload SA.
+
+### How do I deploy Cloud Run?
+You can find a [GitHub Actions example here](./.github/workflows/example_deploy_cloud_run_action.yml) 
+or a [Terraform Cloud example here](./terraform/example_cloud_run.tf).
+
+### How do I deploy App Engine?
+You can find a [GitHub Actions example here](./.github/workflows/example_deploy_app_engine_action.yml)
+or a [Terraform Cloud example here](./terraform/example_app_engine.tf).
