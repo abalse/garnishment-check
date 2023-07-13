@@ -59,6 +59,7 @@ The below APIs have been activated on your project. You cannot activate APIs you
 * monitoring.googleapis.com
 * notebooks.googleapis.com
 * pubsub.googleapis.com
+* retail.googleapis.com
 * run.googleapis.com
 * secretmanager.googleapis.com
 * servicemanagement.googleapis.com
@@ -113,6 +114,7 @@ Every team member has the following roles granted at project level:
 * roles/notebooks.admin
 * roles/notebooks.legacyViewer
 * roles/pubsub.editor
+* roles/retail.editor
 * roles/run.admin
 * roles/secretmanager.admin
 * roles/servicemanagement.quotaViewer
@@ -167,6 +169,7 @@ The workload SA has the following roles granted at project level:
 * roles/notebooks.runner
 * roles/pubsub.publisher
 * roles/pubsub.subscriber
+* roles/retail.editor
 * roles/run.invoker
 * roles/secretmanager.secretAccessor
 * roles/secretmanager.secretVersionAdder
