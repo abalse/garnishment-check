@@ -114,7 +114,7 @@ Every team member has the following roles granted at project level:
 * roles/notebooks.admin
 * roles/notebooks.legacyViewer
 * roles/pubsub.editor
-* roles/retail.editor
+* roles/retail.admin
 * roles/run.admin
 * roles/secretmanager.admin
 * roles/servicemanagement.quotaViewer
