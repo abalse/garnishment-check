@@ -53,6 +53,7 @@ The below APIs have been activated on your project. You cannot activate APIs you
 * contactcenterinsights.googleapis.com
 * dataflow.googleapis.com
 * dataproc.googleapis.com
+* datastudio.googleapis.com
 * dialogflow.googleapis.com
 * discoveryengine.googleapis.com
 * documentai.googleapis.com
@@ -115,6 +116,7 @@ Every team member has the following roles granted at project level:
 * roles/contactcenterinsights.editor
 * roles/dataflow.developer
 * roles/dataproc.editor
+* roles/datastudio.viewer
 * roles/dialogflow.admin
 * roles/discoveryengine.admin
 * roles/documentai.editor
@@ -174,6 +176,7 @@ The workload SA has the following roles granted at project level:
 * roles/dataflow.worker
 * roles/dataproc.hubAgent
 * roles/dataproc.worker
+* roles/datastudio.editor
 * roles/dialogflow.client
 * roles/dialogflow.reader
 * roles/discoveryengine.admin
