@@ -198,15 +198,58 @@ The workload SA has the following roles granted at project level:
 * roles/visionai.admin
 * roles/workflows.invoker
 
+## Use a custom/user-managed Service Account wherever possible 
+The default compute service account in your project has been de-privileged.
+Whenever you provision compute (e.g. a VMs powering a Jupyter notebook or dataflow pipeline, a Cloud Run service or a Cloud Function)
+you must attach your Workload SA (workload@hack-team-autobots-b.iam.gserviceaccount.com) , usually referred to in the GCP documentation as "attaching a custom SA".
+Both your GitHub Actions workflows and Terraform Cloud workspaces have pre-populated variables containing the Workload SA email.
+See the respective sections below for details.
+
+Examples:
+* App Engine
+  * [gcloud](https://cloud.google.com/appengine/docs/legacy/standard/python/user-managed-service-accounts#gcloud) 
+  * [Terraform - Flex](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_flexible_app_version#service_account)
+  * [Terraform - Standard](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_standard_app_version#service_account)
+* [Cloud Build](https://cloud.google.com/build/docs/securing-builds/configure-user-specified-service-accounts)
+  * [Terraform](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudbuild_trigger#service_account_email)
+* Cloud Composer
+  * [Console](https://cloud.google.com/composer/docs/how-to/managing/creating#console)
+  * [gcloud](https://cloud.google.com/composer/docs/how-to/managing/creating#gcloud)
+  * [Terraform](https://cloud.google.com/composer/docs/how-to/managing/creating#terraform)
+* Cloud Functions
+  * [Console](https://cloud.google.com/functions/docs/securing/function-identity#console)
+  * [gcloud](https://cloud.google.com/functions/docs/securing/function-identity#gcloud)
+  * [Terraform - Gen1](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudfunctions_function#service_account_email)
+  * [Terraform - Gen2](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudfunctions2_function#service_account_email)
+* Cloud Run
+  * [Console](https://cloud.google.com/run/docs/securing/service-identity#console)
+  * [gcloud](https://cloud.google.com/run/docs/securing/service-identity#gcloud)
+  * [Terraform](https://cloud.google.com/run/docs/securing/service-identity#terraform)
+* [Dataflow](https://cloud.google.com/dataflow/docs/concepts/security-and-permissions#specify_a_user-managed_worker_service_account)
+  * [Terraform](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dataflow_job#service_account_email)
+  * [Terraform - Flex](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dataflow_flex_template_job#parameters)
+* Cloud Scheduler
+  * [Schedules](https://cloud.google.com/run/docs/triggering/using-scheduler#create_job)
+  * [Tasks](https://cloud.google.com/run/docs/triggering/using-tasks#creating_http_tasks_with_authentication_tokens)
+  * [Terraform](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_scheduler_job#service_account_email)
+* Dataproc
+  * [Console](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts#console)
+  * [gcloud](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts#gcloud-command)
+  * [Terraform](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dataproc_cluster#service_account)
+* Notebooks
+  * [Console](https://cloud.google.com/vertex-ai/docs/workbench/user-managed/create-new#console) - see step 8
+  * [gcloud](https://cloud.google.com/sdk/gcloud/reference/notebooks/instances/create#--service-account)
+  * [Terraform](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/notebooks_instance#service_account)
+* [Workflows](https://cloud.google.com/workflows/docs/authentication#deploy_a_workflow_with_a_custom_service_account)
+  *  [Terraform](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workflows_workflow#service_account)
+* [Vertex AI](https://cloud.google.com/vertex-ai/docs/general/custom-service-account#attach)
+
 ### Limitations & Restrictions
 * You have a budget of EUR ~700.
 Your team lead will receive notifications when your actual or forecast spend passes 25%, 50%, 75%, 90% and 100%. If you are the team lead please cascade this information to your fellow team members.
 Your project will be torn down if you approach 100% or if you are spending rapidly. 
 * Fairly severe quotas are in place to help manage the above.
 Talk to the happy hackathon helpers if this is impeding your idea.
-* The default compute SA in your project has been de-privileged.
-Whenever you provision compute (e.g. a VMs powering a Jupyter notebook or dataflow pipeline, a Cloud Run service or a Cloud Function) 
-you must attach the Workload SA, usually referred to in the GCP documentation as "attaching a custom SA".
 * You cannot create services accounts.
   * Use your infrastructure SA to interact with GCP from GitHub.
   * Use your workload SA to power your workloads.
