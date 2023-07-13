@@ -53,6 +53,7 @@ The below APIs have been activated on your project. You cannot activate APIs you
 * contactcenterinsights.googleapis.com
 * dataflow.googleapis.com
 * dataproc.googleapis.com
+* datastudio.googleapis.com
 * dialogflow.googleapis.com
 * discoveryengine.googleapis.com
 * documentai.googleapis.com
@@ -75,6 +76,7 @@ The below APIs have been activated on your project. You cannot activate APIs you
 * storage-component.googleapis.com
 * storagetransfer.googleapis.com
 * texttospeech.googleapis.com
+* timeseriesinsights.googleapis.com
 * translate.googleapis.com
 * videointelligence.googleapis.com
 * vision.googleapis.com
@@ -114,6 +116,7 @@ Every team member has the following roles granted at project level:
 * roles/contactcenterinsights.editor
 * roles/dataflow.developer
 * roles/dataproc.editor
+* roles/datastudio.viewer
 * roles/dialogflow.admin
 * roles/discoveryengine.admin
 * roles/documentai.editor
@@ -133,6 +136,7 @@ Every team member has the following roles granted at project level:
 * roles/speech.editor
 * roles/storage.admin
 * roles/storagetransfer.admin
+* roles/timeseriesinsights.datasetsEditor
 * roles/visionai.editor
 * roles/workflows.editor
 * roles/workstations.admin
@@ -172,6 +176,7 @@ The workload SA has the following roles granted at project level:
 * roles/dataflow.worker
 * roles/dataproc.hubAgent
 * roles/dataproc.worker
+* roles/datastudio.editor
 * roles/dialogflow.client
 * roles/dialogflow.reader
 * roles/discoveryengine.admin
@@ -195,6 +200,7 @@ The workload SA has the following roles granted at project level:
 * roles/storage.objectViewer
 * roles/storagetransfer.transferAgent
 * roles/storagetransfer.user
+* roles/timeseriesinsights.datasetsEditor
 * roles/visionai.admin
 * roles/workflows.invoker
 
