@@ -46,6 +46,7 @@ The below APIs have been activated on your project. You cannot activate APIs you
 * cloudbuild.googleapis.com
 * clouderrorreporting.googleapis.com
 * cloudfunctions.googleapis.com
+* cloudscheduler.googleapis.com
 * cloudsupport.googleapis.com
 * composer.googleapis.com
 * contactcenteraiplatform.googleapis.com
@@ -104,6 +105,7 @@ Every team member has the following roles granted at project level:
 * roles/cloudbuild.integrationsViewer
 * roles/cloudbuild.workerPoolOwner
 * roles/cloudfunctions.developer
+* roles/cloudscheduler.admin
 * roles/cloudsql.admin
 * roles/cloudsupport.techSupportEditor
 * roles/cloudtranslate.editor
