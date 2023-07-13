@@ -69,6 +69,8 @@ def get_questions():
 
 def insighter(body):
     text = body['text']
+    text = text.encode('utf-8').decode('unicode-escape')
+    text = text.replace('\r\n', '. ').replace('\r','. ').replace('\n','. ')
 #     doc = nlp(text)
 #     print("Noun phrases:", [chunk.text for chunk in doc.noun_chunks])
 #     print("Verbs:", [token.lemma_ for token in doc if token.pos_ == "VERB"])
