@@ -54,6 +54,8 @@ The below APIs have been activated on your project. You cannot activate APIs you
 * dataproc.googleapis.com
 * dialogflow.googleapis.com
 * documentai.googleapis.com
+* eventarc.googleapis.com
+* eventarcpublishing.googleapis.com
 * language.googleapis.com
 * logging.googleapis.com
 * monitoring.googleapis.com
@@ -109,6 +111,7 @@ Every team member has the following roles granted at project level:
 * roles/dialogflow.admin
 * roles/documentai.editor
 * roles/errorreporting.admin
+* roles/eventarc.developer
 * roles/logging.admin
 * roles/monitoring.editor
 * roles/notebooks.admin
@@ -164,6 +167,9 @@ The workload SA has the following roles granted at project level:
 * roles/dialogflow.reader
 * roles/documentai.apiUser
 * roles/errorreporting.writer
+* roles/eventarc.connectionPublisher
+* roles/eventarc.eventReceiver
+* roles/eventarc.publisher
 * roles/logging.logWriter
 * roles/monitoring.metricWriter
 * roles/notebooks.runner
