@@ -82,10 +82,12 @@ The below APIs have been activated on your project. You cannot activate APIs you
 * workstations.googleapis.com
 
 Every team member has the following roles granted at project level:
+* organizations/984428091370/roles/serviceAccountMetadataViewer
 * roles/aiplatform.migrator
 * roles/aiplatform.tensorboardWebAppUser
 * roles/aiplatform.user
 * roles/appengine.appAdmin
+* roles/appengine.appCreator
 * roles/artifactregistry.admin
 * roles/automl.editor
 * roles/bigquery.connectionAdmin
@@ -93,6 +95,7 @@ Every team member has the following roles granted at project level:
 * roles/bigquery.resourceViewer
 * roles/bigquery.user
 * roles/bigquerydatapolicy.maskedReader
+* roles/browser
 * roles/cloudasset.viewer
 * roles/cloudbuild.builds.approver
 * roles/cloudbuild.builds.editor
@@ -118,6 +121,7 @@ Every team member has the following roles granted at project level:
 * roles/monitoring.editor
 * roles/notebooks.admin
 * roles/notebooks.legacyViewer
+* roles/oauthconfig.viewer
 * roles/pubsub.editor
 * roles/retail.admin
 * roles/run.admin
@@ -145,6 +149,7 @@ The workload SA has the following roles granted at project level:
 * roles/artifactregistry.createOnPushWriter
 * roles/automl.predictor
 * roles/bigquery.connectionUser
+* roles/bigquery.dataEditor
 * roles/bigquery.dataViewer
 * roles/bigquery.filteredDataViewer
 * roles/bigquery.jobUser
