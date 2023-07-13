@@ -141,7 +141,7 @@ Every team member has the following roles granted at project level:
 You have an "infrastructure SA" (infrastructure@hack-team-autobots-b.iam.gserviceaccount.com) with the same IAM permissions as team members.
 You can authenticate as it from a GitHub Actions workflow anywhere in this repo using the Workload Identity Federation method of [Google's auth action](https://github.com/google-github-actions/auth)
 and run gcloud commands using [Google's setup-gcloud Action](https://github.com/google-github-actions/setup-gcloud).
-There's an example workflow in your repo to start you off.
+There's an [example workflow in your repo](./.github/workflows/example_using_gcloud.yml) to start you off.
 This SA is also used when you provision infrastructure using your Terraform Cloud workspace.
 
 You have a "workload SA" (workload@hack-team-autobots-b.iam.gserviceaccount.com) that you can use to attach to your workloads (e.g. Cloud Run revisions).
@@ -320,6 +320,7 @@ using the contents of that directory as the root module.
 
 The workspace has been pre-configured so that the google and google-beta providers will authenticate using your infrastructure SA 
 and default to creating resources in your project.
+There's a [simple example](./terraform/main.tf) to start you off. 
 
 A set of useful [Input variables](https://developer.hashicorp.com/terraform/language/values/variables) have been populated for you:
 * infra_sa_email - The email address representation of the SA you can use to deploy infrastructure. It has the same access rights as human team members.: infrastructure@hack-team-autobots-b.iam.gserviceaccount.com
