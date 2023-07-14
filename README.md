@@ -143,6 +143,7 @@ Every team member has the following roles granted at project level:
 * roles/documentai.editor
 * roles/errorreporting.admin
 * roles/eventarc.developer
+* roles/iam.roleViewer
 * roles/logging.admin
 * roles/monitoring.editor
 * roles/notebooks.admin
