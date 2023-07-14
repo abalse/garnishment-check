@@ -1,6 +1,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
-import spacy
+import os
+import io
+# import spacy
 from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
 # from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
 
@@ -12,7 +14,20 @@ nlp = pipeline('question-answering', model=model_name, tokenizer=model_name)
 # b) Load model & tokenizer
 model = AutoModelForQuestionAnswering.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-from spacy import displacy
+
+
+PATH = r'C:\Users\utkar\Desktop\autobots-b\Garnishment_Database.json'
+
+
+def startupCheck():
+    if os.path.isfile(PATH) and os.access(PATH, os.R_OK):
+        # checks if file exists
+        print ("File exists and is readable")
+    else:
+        print ("Either file is missing or is not readable, creating file...")
+        with io.open(PATH, 'w') as db_file:
+            db_file.write(json.dumps({}))
+# from spacy import displacy
 # nlp = spacy.load("en_core_web_trf")
 
 # def labels():
@@ -105,8 +120,13 @@ def insighter(body):
              response[index] = question_answer_mapping[q2]
         else:
             response[index] = question_answer_mapping[q3]
-            
-        
+    # Writing to sample.json
+    customer_id = response.get(0)
+    key = customer_id["answer"]
+    json_object = {key : response}
+    print(json_object)
+    with open(r'C:\Users\utkar\Desktop\autobots-b\Garnishment_Database.json', "w") as outfile:
+        outfile.write(json.dumps(json_object))        
     return response
 
 
@@ -159,6 +179,7 @@ class MyHandler(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(response_data).encode('utf-8'))
         
 def run(server_class=HTTPServer, handler_class=MyHandler, port=8000):
+    startupCheck()
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print(f"Server listening on port {port}")
